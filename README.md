@@ -1,6 +1,6 @@
 # wedded
 
-A new Flutter project.
+An Academic main project using Flutter framework.
 
 ## Getting Started
 
