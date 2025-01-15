@@ -1,0 +1,71 @@
+.cy-help-ticket-details {
+    background-color: #f9fafc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cy-ticket-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.cy-ticket-subtitle {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.cy-contact-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+.cy-divider {
+    margin: 20px 0;
+    border-color: #e0e0e0;
+}
+
+.cy-help-communication {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.cy-communication-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.o_portal_contact_details img.o_avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+}
+
+.o_portal_contact_details h6.mb-0 {
+    font-size: 1rem;
+    color: #333;
+}
+
+.badge-in-progress {
+    background-color: #f39c12;
+    color: white;
+}
+
+.badge-solved {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-verified {
+    background-color: #17a2b8;
+    color: white;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="cloud_help_ticket_main_menu" name="Help Ticket" web_icon="cloud_help_ticket,static/description/icon.png"/>
+    <menuitem id="cloud_help_ticket_menu" name="Help Ticket" action="cloud_help_ticket_action" sequence='20'
+              parent="cloud_help_ticket.cloud_help_ticket_main_menu"/>
+
+    <menuitem id="cloud_help_desk_configuration"
+              name="Configuration"
+              parent="cloud_help_ticket.cloud_help_ticket_main_menu"
+              sequence="30"/>
+
+    <menuitem id="cloud_help_desk_tags"
+              name="Tags"
+              action="cloud_help_ticket_tag_action"
+              parent="cloud_help_ticket.cloud_help_desk_configuration"
+              sequence="40"/>
+    <menuitem id="cloud_help_desk_type"
+              name="Types"
+              action="cloud_help_ticket_type_action"
+              parent="cloud_help_ticket.cloud_help_desk_configuration"
+              sequence="50"/>
+</odoo>

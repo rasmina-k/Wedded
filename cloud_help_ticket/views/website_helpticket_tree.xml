@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sign_request_portal_layout" name="Portal layout : Sign Request"
+              inherit_id="portal.portal_breadcrumbs" priority="66">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <p>TESTT</p>
+            <t t-esc="help_ticket"/>
+<!--            <t t-log="values"/>-->
+            <li t-if="page_name == 'help_ticket'" class="breadcrumb-item active">
+                <span>Help Ticket111</span>
+            </li>
+            <li t-if="page_name == 'help_ticket_request_details'"
+                class="breadcrumb-item active">
+                <a t-attf-href="/help_ticket" aria-label="Home">
+                    <span>Help Ticket</span>
+                </a>
+                <span>/
+                    <t t-out="ticket.name"/>
+                </span>
+            </li>
+
+        </xpath>
+    </template>
+    <template id="portal_my_home_helpdesk_ticket_support" name="Show Tickets" customize_show="True" inherit_id="portal.portal_my_home" priority="60">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <t t-set="portal_service_category_enable" t-value="True"/>
+
+        </xpath>
+        <div id="portal_service_category" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/purchase/static/src/img/rfq.svg'"/>
+                <t t-set="title">Support Tickets</t>
+                <t t-set="text">Follow all your helpdesk tickets</t>
+                <t t-set="url" t-value="'help_ticket'"/>
+                <t t-set="placeholder_count" t-value="'help_ticket_request_count'"/>
+            </t>
+        </div>
+    </template>
+
+    <template id="cloud_help_tickets">
+        <t t-call="website.layout">
+            <div id="tickets_tree_request_form">
+                <div class="container">
+<!--                    <h1>Help Tickets</h1>-->
+                    <div class="row">
+                        <table class="o_list_table position-relative table table-sm o_list_table_ungrouped table-striped o_portal_my_doc_table mb-0">
+                            <thead>
+                                <tr class="active">
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="help_tickets" t-as="ticket">
+                                    <tr>
+
+                                        <td>
+                                            <t t-esc="ticket.id"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="ticket.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="ticket.description"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

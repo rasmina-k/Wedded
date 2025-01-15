@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--help ticket.types views-->
+    <record id="cloud_help_ticket_type_view_form" model="ir.ui.view">
+        <field name="name">cloud.help.ticket.type.view.form</field>
+        <field name="model">helpticket.type</field>
+        <field name="arch" type="xml">
+            <form string="Help Ticket Type">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Question"/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="cloud_help_ticket_type_view_tree" model="ir.ui.view">
+        <field name="name">cloud.help.ticket.type.view.tree</field>
+        <field name="model">helpticket.type</field>
+        <field name="arch" type="xml">
+            <tree string="Types" editable="bottom" sample="1">
+                <field name="name" widget="handle"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Types Configuration -->
+    <record id="cloud_help_ticket_type_action" model="ir.actions.act_window">
+        <field name="name">Types</field>
+        <field name="res_model">helpticket.type</field>
+        <field name="view_id" ref="cloud_help_ticket_type_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create Help Ticket Types.
+            </p><p>
+            Use Types to manage and track your Tickets easily.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add this template to the portal home section -->
+    <template id="portal_my_home_helpdesk_ticket_support" name="Support Tickets Card" inherit_id="portal.portal_my_home" priority="60">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <t t-set="portal_service_category_enable" t-value="True"/>
+        </xpath>
+        <div id="portal_service_category" position="inside">
+              <div>Support Ticket Card Added</div>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/purchase/static/src/img/rfq.svg'"/>
+                <t t-set="title">Support Tickets</t> <!-- Title for the support tickets card -->
+                <t t-set="text">Follow all your support tickets</t>
+                <t t-set="url" t-value="'/help_ticket'"/> <!-- URL to the Support Tickets page -->
+                <t t-set="placeholder_count" t-value="'help_ticket_request_count'"/>
+            </t>
+        </div>
+    </template>
+</odoo>

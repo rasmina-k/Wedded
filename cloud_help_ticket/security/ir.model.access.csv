@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_help_ticket,access.help.ticket,model_help_ticket,base.group_user,1,1,1,1
+access_helpticket_tags,access.helpticket.tags,model_helpticket_tags,base.group_user,1,1,1,1
+access_helpticket_type,access.helpticket.type,model_helpticket_type,base.group_user,1,1,1,1
+
+access_help_ticket_user,help.ticket.user,model_help_ticket,base.group_portal,1,0,0,0

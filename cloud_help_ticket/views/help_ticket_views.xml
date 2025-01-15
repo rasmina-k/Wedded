@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="help_ticket_tree_view" model="ir.ui.view">
+        <field name="model">help.ticket</field>
+        <field name="arch" type="xml">
+            <tree string="help.ticket">
+                <field name="name"/>
+                <field name="id" string="ID"/>
+                <field name="user_id"/>
+                <field name="partner_id"/>
+                <field name="website"/>
+                <field name="state" widget="badge"
+                       decoration-success="state =='solved'"
+                       decoration-danger="state == 'cancelled'"
+                       decoration-warning="state == 'resource_allocation'"/>
+                <field name="priority" widget="priority" />
+            </tree>
+        </field>
+    </record>
+    <record id="help_ticket_form_view" model="ir.ui.view">
+        <field name="model">help.ticket</field>
+        <field name="arch" type="xml">
+            <form string="help_ticket">
+                <header>
+                    <!--                    <button type="object"-->
+                    <!--                            string="Assign" invisible="state == 'new'"/>-->
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new,resource_allocation,in_progress,solved,verified,cancelled"/>
+                </header>
+                <sheet>
+                    <!--                    <div class="oe_title">-->
+                    <h1>
+                        <field name="name" placeholder="Server not connecting"/>
+                    </h1>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group>
+                        <group>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="ticket_type_id" widget="many2one_avatar_user"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="partner_phone"/>
+                            <field name="email"/>
+                        </group>
+                    </group>
+                    <!--                    </div>-->
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" placeholder="Enter ticket description here..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                    <field name="activity_ids"/>
+                </div>
+
+            </form>
+        </field>
+    </record>
+
+    <!--    <record id="help_ticket_search_view" model="ir.ui.view">-->
+    <!--        <field name="name">Cloud Help Ticket Search</field>-->
+    <!--        <field name="model">help.ticket</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <search>-->
+    <!--&lt;!&ndash;                <filter string="All" name="all" domain="['|', ('active', '=', True), ('active', '=', False)]"/>&ndash;&gt;-->
+    <!--                <filter string="All" name="all"/>-->
+    <!--            </search>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="cloud_help_ticket_action" model="ir.actions.act_window">
+        <field name="name">Cloud Help Ticket</field>
+        <field name="res_model">help.ticket</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_all': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Help tickets Entries
+            </p>
+            <p>
+                Track and Create Help Ticket
+            </p>
+        </field>
+    </record>
+
+    <!--    <record id="help.ticket_config_settings_action" model="ir.actions.act_window">-->
+    <!--        <field name="name">Settings</field>-->
+    <!--        <field name="res_model">res.config.settings</field>-->
+    <!--        <field name="view_mode">form</field>-->
+    <!--        <field name="target">inline</field>-->
+    <!--        <field name="context">{'module' : 'cyllo_cloud', 'bin_size': False}</field>-->
+    <!--    </record>-->
+
+
+</odoo>
